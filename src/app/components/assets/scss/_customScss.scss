@@ -1,0 +1,296 @@
+/* --- Root Variables-ligth --- */
+:root {
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --input-bg: #f9fafb;
+  --header-text: #1a1a1a;
+  --nav-link: #4b5563;
+  --border-color: #e5e7eb;
+  --text-muted: #4b5563;
+  --accent-color: #B7E5CD;
+  --brand-primary: #B7E5CD;
+  --brand-border: #f2f1d8; /* Light version for border */
+  --brand-shadow: rgba(183, 229, 205, 0.4);
+}
+
+[data-theme='dark'] {
+  --text-muted: #9ca3af;
+  --header-bg: #1a1a1a;
+  --card-bg: #242424;
+  --input-bg: #2d2d2d;
+  --header-text: #ffffff;
+  --nav-link: #d1d5db;
+  --border-color: #374151;
+  --brand-primary: #B7E5CD;
+  --brand-border: #eae8e8; /* Darker, muted version for dark mode border */
+  --brand-shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* --- Base --- */
+body {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* --- Helper Classes-input --- */
+.input-theme {
+  background-color: var(--input-bg);
+  color: var(--header-text);
+  border: 1px solid var(--border-color);
+  outline: none; /* Removes the default blue browser outline */
+  transition: all 0.2s ease-in-out;
+}
+
+/* THE FIX: Active / Focus State */
+.input-theme:focus {
+  border-color: var(--accent-color) !important;
+  /* Adds a soft red glow around the input */
+  box-shadow: 0 0 0 3px rgba(183, 229, 205, 0.28);
+}
+
+.input-theme::placeholder {
+  color: var(--text-muted);
+}
+
+.card-theme {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* Apply a smooth transition to background and text colors */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Optional: Prevent transitions on page load to avoid a weird "sliding" effect
+   when the user first opens the site */
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* --- Root Variables-ligth-end --- */
+
+/* Fix for imported .svg icons (favorite, cart) */
+.icon-theme {
+  filter: none;
+  transition: filter 0.3s ease;
+}
+
+[data-theme='dark'] .icon-theme {
+  filter: invert(1) brightness(2);
+}
+
+
+/* ---style-switch-mode----*/
+.darkThemeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.darkThemeBtn input {
+  display: none;
+}
+
+.darkThemeBtn label {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  background: #ffffff0d;
+  backdrop-filter: blur(4px);
+  border: none;
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.darkThemeBtn label:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tactile click effect */
+.darkThemeBtn label:active {
+  transform: scale(0.92);
+}
+
+.darkThemeBtn label svg {
+  position: absolute;
+  width: 18px; /* Proportional icon size */
+  height: 18px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Light Mode State (Moon showing) */
+.darkThemeBtn label svg.sun {
+  opacity: 0;
+  transform: scale(0.4) rotate(-45deg);
+  fill: #fff;
+}
+
+.darkThemeBtn label svg.moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  fill: #fff;
+}
+
+/* Dark Mode State (Sun showing - Blue background) */
+.darkThemeBtn input:checked + label {
+  background: #ffffff0d;
+}
+
+.darkThemeBtn input:checked + label svg.sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.darkThemeBtn input:checked + label svg.moon {
+  opacity: 0;
+  transform: scale(0.4) rotate(45deg);
+}
+
+
+/* --- Responsive Dark Mode Toggle --- */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .darkThemeBtn label {
+    height: 42px;
+    width: 42px;
+    border-radius: 50px;
+  }
+
+  .darkThemeBtn label svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .darkThemeBtn label {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+  }
+
+  .darkThemeBtn label svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Very Small Devices */
+@media (max-width: 360px) {
+  .darkThemeBtn label {
+    height: 36px;
+    width: 36px;
+  }
+
+  .darkThemeBtn label svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+/*style-switch-mode-end*/
+
+/*-- main-color --*/
+:root {
+  --main-text: #8ABEB9;
+  --main-hover-text: #B7E5CD;
+  --main-bg: #B7E5CD;
+  --main-hover-bg: #f3f4f6;
+  --main-border: #eee;
+  --main-hover-border:#B7E5CD;
+  --main-color-border:#B7E5CD;
+  --main-icon: #8ABEB9;
+  --main-button: #8ABEB9;
+  --main-hover-button: #B7E5CD;
+  --main-border-card: rgba(220, 242, 241, 0.26);
+  --main-border-color-card: #B7E5CD;
+}
+
+/**backround-color**/
+.custom-main-color-bg{
+  background-color: var(--main-bg);
+}
+
+.custom-main-color-bg-hover:hover{
+  background-color: var(--main-hover-bg);
+}
+/**backround-color-end**/
+
+/** border **/
+.custom-main-color-border{
+  border: 2px solid var(--main-border);
+}
+
+.custom-main-color-border-card{
+  border-color: var(--main-hover-border);
+}
+
+.custom-main-color-border-hover:hover {
+  border-color: var(--main-hover-border);
+}
+
+.custom-main-border{
+  border-color: var(--main-color-border);
+}
+
+/** border-end **/
+
+/** color-text **/
+.custom-main-color-text{
+  color: var(--main-text);
+}
+
+.custom-main-color-text-hover:hover{
+  color: var(--main-hover-text);
+}
+/** color-text-end **/
+
+/** color-text-icon**/
+.custom-main-color-icon {
+  color: var(--main-icon);
+}
+/** color-icon-end**/
+
+/** color-button **/
+.custom-main-color-button {
+  background-color: var(--main-button);
+}
+
+.custom-main-color-button-hover:hover {
+  background-color: var(--main-hover-button);
+}
+/** color-button-end**/
+
+.custom-main-color-card{
+  background-color: var(--main-border-card);
+}
+
+
+/*---button-scrollbar-Leftandright---*/
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+/*---button-scrollbar-Leftandright-end---*/
+
+html, body {
+  overscroll-behavior: none;
+}

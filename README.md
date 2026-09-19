@@ -1,93 +1,432 @@
-# Vendo Staff Panel
+# VENDO Dashboard — Frontend
 
+VENDO Dashboard is the **administration and management frontend** for the VENDO e-commerce platform.
 
+It provides administrators with a centralized dashboard to manage products, categories, brands, users, orders, returns, payments, and other e-commerce operations through a modern and responsive interface.
 
-## Getting started
+## 🚀 Features
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### 📊 Dashboard
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+* Overview of store activity
+* Total orders
+* Revenue statistics
+* Average order value
+* Order status overview
+* Sales and order analytics
+* Date range filtering
+* Quick access to management sections
 
-## Add your files
+### 📦 Product Management
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+* View products
+* Create products
+* Edit products
+* Delete products
+* Manage product status
+* Manage product images
+* Manage product variants
+* Filter and search products
 
+### 🗂️ Category Management
+
+* View categories
+* Create categories
+* Edit categories
+* Delete categories
+* Manage category status
+
+### 🏷️ Brand Management
+
+* View brands
+* Create brands
+* Edit brands
+* Delete brands
+* Manage brand status
+
+### 👥 User Management
+
+* View registered users
+* View user information
+* Manage user accounts
+* Search and filter users
+* Manage account status
+
+### 🛒 Order Management
+
+* View customer orders
+* View order details
+* Track order status
+* Manage order processing
+* View payment information
+* View customer and shipping information
+
+### 🔄 Return Management
+
+* View return requests
+* Review returned items
+* Approve or reject return requests
+* Inspect returned items
+* Process refunds
+* Process exchanges
+* Track exchange status
+* Complete return requests
+
+### 💳 Payment Management
+
+* View payment information
+* View payment status
+* Review transaction information
+* Track refund information
+
+## 🛠️ Technologies
+
+* **React**
+* **TypeScript**
+* **Vite**
+* **React Router**
+* **Tailwind CSS**
+* **shadcn/ui**
+* **Axios**
+* **TanStack React Query**
+* **TanStack React Table**
+* **Sonner**
+* **Lucide React**
+
+## 📁 Project Structure
+
+```text
+vendo-admin-panel/
+├── src/
+│   ├── api/
+│   │   └── axios.ts
+│   │
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── dashboard/
+│   │   ├── products/
+│   │   ├── categories/
+│   │   ├── brands/
+│   │   ├── users/
+│   │   ├── orders/
+│   │   └── returns/
+│   │
+│   ├── data/
+│   │
+│   ├── hooks/
+│   │
+│   ├── layouts/
+│   │   └── Dashboard.tsx
+│   │
+│   ├── pages/
+│   │   ├── dashboard/
+│   │   ├── products/
+│   │   ├── categories/
+│   │   ├── brands/
+│   │   ├── users/
+│   │   ├── orders/
+│   │   └── returns/
+│   │
+│   ├── types/
+│   │
+│   ├── lib/
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── public/
+├── .env
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/seakeii6072/vendo-admin-panel.git
-git branch -M main
-git push -uf origin main
+
+## ⚙️ Getting Started
+
+### Requirements
+
+Make sure you have installed:
+
+* Node.js
+* npm
+
+You can check your versions with:
+
+```bash
+node -v
+npm -v
 ```
 
-## Integrate with your tools
+### 1. Clone the repository
 
-* [Set up project integrations](https://gitlab.com/seakeii6072/vendo-admin-panel/-/settings/integrations)
+```bash
+git clone <your-repository-url>
+```
 
-## Collaborate with your team
+### 2. Navigate to the project
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+```bash
+cd vendo-dashboard
+```
 
-## Test and Deploy
+### 3. Install dependencies
 
-Use the built-in continuous integration in GitLab.
+```bash
+npm install
+```
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+### 4. Configure environment variables
 
-***
+Create a `.env` file in the project root:
 
-# Editing this README
+```env
+VITE_API_URL=http://localhost:8000/api
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Update the API URL according to your VENDO backend configuration.
 
-## Suggestions for a good README
+### 5. Start the development server
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+```bash
+npm run dev
+```
 
-## Name
-Choose a self-explaining name for your project.
+The dashboard will be available at:
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+```text
+http://localhost:5173
+```
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## 🔗 Backend API
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+The VENDO Dashboard communicates with the VENDO backend through RESTful APIs.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Backend
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+* **Framework:** Laravel
+* **Language:** PHP
+* **Database:** PostgreSQL
+* **API:** RESTful API
+* **ORM:** Eloquent
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Example:
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+```env
+VITE_API_URL=http://localhost:8000/api
+```
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Make sure the backend API is running before starting the dashboard.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+## 🧭 Dashboard Navigation
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+The dashboard provides administrators with access to:
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+```text
+VENDO Dashboard
+│
+├── Dashboard
+│
+├── Products
+│   ├── Product List
+│   ├── Add Product
+│   └── Edit Product
+│
+├── Categories
+│
+├── Brands
+│
+├── Users
+│
+├── Orders
+│
+├── Returns
+│   ├── Return Requests
+│   ├── Refunds
+│   └── Exchanges
+│
+└── Payments
+```
 
-## License
-For open source projects, say how it is licensed.
+## 🔄 Return, Refund & Exchange Flow
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The dashboard supports managing customer return requests.
+
+```text
+Customer
+   │
+   ▼
+Return Request
+   │
+   ▼
+Admin Review
+   │
+   ├── Reject
+   │
+   └── Approve
+          │
+          ▼
+       Inspection
+          │
+          ├── Refund
+          │
+          └── Exchange
+                 │
+                 ▼
+              Processing
+                 │
+                 ▼
+              Completed
+```
+
+A return request can contain multiple items, and each item can have its own return type such as **refund** or **exchange**.
+
+## 📅 Dashboard Analytics
+
+Administrators can filter dashboard statistics using a date range.
+
+Example metrics include:
+
+* Total orders
+* Active orders
+* Total revenue
+* Average order value
+* Sales performance
+* Order status statistics
+
+Date filtering supports selecting a custom date range before applying the filter.
+
+## 📊 Data Tables
+
+The dashboard uses interactive data tables for management screens.
+
+Common table functionality includes:
+
+* Pagination
+* Sorting
+* Searching
+* Filtering
+* Status filtering
+* Row actions
+* Edit actions
+* Delete actions
+* Responsive layouts
+
+## 🎨 UI & Design
+
+The dashboard uses:
+
+* Tailwind CSS
+* shadcn/ui
+* Lucide icons
+* Responsive layouts
+* Reusable components
+* Modal dialogs
+* Confirmation dialogs
+* Toast notifications
+
+The goal is to provide a clean and consistent administration experience.
+
+## 📜 Available Scripts
+
+### Development
+
+```bash
+npm run dev
+```
+
+Starts the Vite development server.
+
+### Build
+
+```bash
+npm run build
+```
+
+Creates an optimized production build.
+
+### Preview
+
+```bash
+npm run preview
+```
+
+Previews the production build locally.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+Checks the project for code-quality and ESLint issues.
+
+## 🔐 Authentication & Authorization
+
+The dashboard is intended for authorized VENDO administrators.
+
+Protected functionality includes management of:
+
+* Products
+* Categories
+* Brands
+* Users
+* Orders
+* Returns
+* Refunds
+* Exchanges
+* Payments
+* Dashboard analytics
+
+Authorization is handled through the VENDO backend API.
+
+## 🌐 Deployment
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+The generated production files can then be deployed to a static hosting platform or served through a web server.
+
+Before deployment, configure:
+
+```env
+VITE_API_URL=<production-api-url>
+```
+
+## 🔗 Related Projects
+
+### VENDO Customer Frontend
+
+Customer-facing e-commerce application for browsing products, shopping cart, checkout, orders, and account management.
+
+### VENDO Backend
+
+Laravel REST API responsible for authentication, products, orders, payments, returns, refunds, exchanges, and database operations.
+
+## 👨‍💻 Developer
+
+**Nheung Phearakyuth**
+
+Full Stack Developer
+
+### VENDO Technology Stack
+
+| Application       | Technology                 |
+| ----------------- | -------------------------- |
+| Customer Frontend | Next.js, React, TypeScript |
+| Admin Dashboard   | React, TypeScript, Vite    |
+| Backend           | Laravel, PHP               |
+| Database          | PostgreSQL                 |
+| API               | RESTful API                |
+| UI                | Tailwind CSS, shadcn/ui    |
+
+## 📌 Project Status
+
+VENDO Dashboard is actively developed as part of the VENDO e-commerce platform.
+
+---
+
+⭐ **VENDO — E-Commerce Management Dashboard**

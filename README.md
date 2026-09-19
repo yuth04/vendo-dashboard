@@ -2,20 +2,20 @@
 
 VENDO Dashboard is the **administration and management frontend** for the VENDO e-commerce platform.
 
-It provides administrators with a centralized dashboard to manage products, categories, brands, users, orders, returns, payments, and other e-commerce operations through a modern and responsive interface.
+It is built with **Next.js, React, and TypeScript** and provides administrators with a centralized interface for managing products, categories, brands, users, orders, returns, refunds, exchanges, payments, and store analytics.
 
 ## 🚀 Features
 
 ### 📊 Dashboard
 
-* Overview of store activity
+* Store overview
 * Total orders
-* Revenue statistics
+* Active orders
+* Total revenue
 * Average order value
-* Order status overview
-* Sales and order analytics
-* Date range filtering
-* Quick access to management sections
+* Order status statistics
+* Sales analytics
+* Custom date range filtering
 
 ### 📦 Product Management
 
@@ -23,10 +23,10 @@ It provides administrators with a centralized dashboard to manage products, cate
 * Create products
 * Edit products
 * Delete products
-* Manage product status
-* Manage product images
-* Manage product variants
-* Filter and search products
+* Product search and filtering
+* Product status management
+* Product image management
+* Product variant management
 
 ### 🗂️ Category Management
 
@@ -34,7 +34,7 @@ It provides administrators with a centralized dashboard to manage products, cate
 * Create categories
 * Edit categories
 * Delete categories
-* Manage category status
+* Category status management
 
 ### 🏷️ Brand Management
 
@@ -42,31 +42,31 @@ It provides administrators with a centralized dashboard to manage products, cate
 * Create brands
 * Edit brands
 * Delete brands
-* Manage brand status
+* Brand status management
 
 ### 👥 User Management
 
-* View registered users
+* View users
+* Search users
+* Filter users
 * View user information
 * Manage user accounts
-* Search and filter users
-* Manage account status
 
 ### 🛒 Order Management
 
 * View customer orders
 * View order details
-* Track order status
-* Manage order processing
+* Manage order status
+* View customer information
+* View shipping information
 * View payment information
-* View customer and shipping information
 
 ### 🔄 Return Management
 
 * View return requests
 * Review returned items
-* Approve or reject return requests
-* Inspect returned items
+* Approve or reject returns
+* Inspect returned products
 * Process refunds
 * Process exchanges
 * Track exchange status
@@ -76,15 +76,14 @@ It provides administrators with a centralized dashboard to manage products, cate
 
 * View payment information
 * View payment status
-* Review transaction information
-* Track refund information
+* View transaction information
+* Manage refund information
 
 ## 🛠️ Technologies
 
+* **Next.js**
 * **React**
 * **TypeScript**
-* **Vite**
-* **React Router**
 * **Tailwind CSS**
 * **shadcn/ui**
 * **Axios**
@@ -92,53 +91,45 @@ It provides administrators with a centralized dashboard to manage products, cate
 * **TanStack React Table**
 * **Sonner**
 * **Lucide React**
+* **Next.js App Router**
 
 ## 📁 Project Structure
 
 ```text
-vendo-admin-panel/
-├── src/
+vendo-dashboard/
+├── app/
+│   ├── dashboard/
+│   ├── products/
+│   ├── categories/
+│   ├── brands/
+│   ├── users/
+│   ├── orders/
+│   ├── returns/
+│   └── ...
+│
+├── components/
+│   ├── ui/
+│   ├── dashboard/
+│   ├── products/
+│   ├── categories/
+│   ├── brands/
+│   ├── users/
+│   ├── orders/
+│   └── returns/
+│
+├── hooks/
+│
+├── lib/
 │   ├── api/
-│   │   └── axios.ts
-│   │
-│   ├── components/
-│   │   ├── ui/
-│   │   ├── dashboard/
-│   │   ├── products/
-│   │   ├── categories/
-│   │   ├── brands/
-│   │   ├── users/
-│   │   ├── orders/
-│   │   └── returns/
-│   │
-│   ├── data/
-│   │
-│   ├── hooks/
-│   │
-│   ├── layouts/
-│   │   └── Dashboard.tsx
-│   │
-│   ├── pages/
-│   │   ├── dashboard/
-│   │   ├── products/
-│   │   ├── categories/
-│   │   ├── brands/
-│   │   ├── users/
-│   │   ├── orders/
-│   │   └── returns/
-│   │
-│   ├── types/
-│   │
-│   ├── lib/
-│   │
-│   ├── App.tsx
-│   └── main.tsx
+│   └── utils/
+│
+├── types/
 │
 ├── public/
-├── .env
+│
+├── next.config.ts
 ├── package.json
 ├── tsconfig.json
-├── vite.config.ts
 └── README.md
 ```
 
@@ -151,7 +142,7 @@ Make sure you have installed:
 * Node.js
 * npm
 
-You can check your versions with:
+Check your installed versions:
 
 ```bash
 node -v
@@ -178,10 +169,10 @@ npm install
 
 ### 4. Configure environment variables
 
-Create a `.env` file in the project root:
+Create a `.env.local` file in the project root:
 
 ```env
-VITE_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
 ```
 
 Update the API URL according to your VENDO backend configuration.
@@ -192,17 +183,17 @@ Update the API URL according to your VENDO backend configuration.
 npm run dev
 ```
 
-The dashboard will be available at:
+Open the dashboard:
 
 ```text
-http://localhost:5173
+http://localhost:3000
 ```
 
 ## 🔗 Backend API
 
 The VENDO Dashboard communicates with the VENDO backend through RESTful APIs.
 
-### Backend
+### Backend Stack
 
 * **Framework:** Laravel
 * **Language:** PHP
@@ -213,19 +204,21 @@ The VENDO Dashboard communicates with the VENDO backend through RESTful APIs.
 Example:
 
 ```env
-VITE_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_API_URL=http://localhost:8000/api
 ```
 
-Make sure the backend API is running before starting the dashboard.
+Make sure the Laravel backend is running before using API-dependent features.
 
-## 🧭 Dashboard Navigation
-
-The dashboard provides administrators with access to:
+## 🧭 Dashboard Modules
 
 ```text
 VENDO Dashboard
 │
 ├── Dashboard
+│   ├── Analytics
+│   ├── Revenue
+│   ├── Orders
+│   └── Average Order Value
 │
 ├── Products
 │   ├── Product List
@@ -248,9 +241,9 @@ VENDO Dashboard
 └── Payments
 ```
 
-## 🔄 Return, Refund & Exchange Flow
+## 🔄 Return, Refund & Exchange
 
-The dashboard supports managing customer return requests.
+VENDO supports a complete return management workflow.
 
 ```text
 Customer
@@ -279,93 +272,61 @@ Admin Review
               Completed
 ```
 
-A return request can contain multiple items, and each item can have its own return type such as **refund** or **exchange**.
+A single return request can contain **multiple return items**, and each item can have its own return type:
+
+```text
+Return Request
+├── Item 1 → Refund
+├── Item 2 → Exchange
+└── Item 3 → Refund
+```
 
 ## 📅 Dashboard Analytics
 
-Administrators can filter dashboard statistics using a date range.
+Administrators can select a custom date range to analyze store performance.
 
-Example metrics include:
+Available metrics can include:
 
 * Total orders
 * Active orders
 * Total revenue
 * Average order value
+* Order status
 * Sales performance
-* Order status statistics
 
-Date filtering supports selecting a custom date range before applying the filter.
+The selected date range is applied to the dashboard statistics.
 
 ## 📊 Data Tables
 
-The dashboard uses interactive data tables for management screens.
+Management pages use interactive data tables with features such as:
 
-Common table functionality includes:
-
-* Pagination
-* Sorting
-* Searching
+* Search
 * Filtering
-* Status filtering
+* Sorting
+* Pagination
+* Status filters
 * Row actions
 * Edit actions
 * Delete actions
-* Responsive layouts
 
 ## 🎨 UI & Design
 
-The dashboard uses:
+The dashboard is built with a modern and responsive interface using:
 
-* Tailwind CSS
-* shadcn/ui
-* Lucide icons
-* Responsive layouts
+* **Tailwind CSS**
+* **shadcn/ui**
+* **Lucide React**
 * Reusable components
+* Responsive layouts
 * Modal dialogs
 * Confirmation dialogs
 * Toast notifications
 
-The goal is to provide a clean and consistent administration experience.
-
-## 📜 Available Scripts
-
-### Development
-
-```bash
-npm run dev
-```
-
-Starts the Vite development server.
-
-### Build
-
-```bash
-npm run build
-```
-
-Creates an optimized production build.
-
-### Preview
-
-```bash
-npm run preview
-```
-
-Previews the production build locally.
-
-### Lint
-
-```bash
-npm run lint
-```
-
-Checks the project for code-quality and ESLint issues.
-
 ## 🔐 Authentication & Authorization
 
-The dashboard is intended for authorized VENDO administrators.
+The dashboard is designed for authorized VENDO administrators.
 
-Protected functionality includes management of:
+Protected management areas include:
 
 * Products
 * Categories
@@ -378,54 +339,82 @@ Protected functionality includes management of:
 * Payments
 * Dashboard analytics
 
-Authorization is handled through the VENDO backend API.
+Authentication and authorization are handled through the VENDO backend API.
 
-## 🌐 Deployment
+## 📜 Available Scripts
 
-Build the application for production:
+### Development
+
+```bash
+npm run dev
+```
+
+Starts the Next.js development server.
+
+### Build
 
 ```bash
 npm run build
 ```
 
-The generated production files can then be deployed to a static hosting platform or served through a web server.
+Creates an optimized production build.
 
-Before deployment, configure:
+### Production
 
-```env
-VITE_API_URL=<production-api-url>
+```bash
+npm run start
 ```
 
-## 🔗 Related Projects
+Starts the production Next.js server.
 
-### VENDO Customer Frontend
+### Lint
 
-Customer-facing e-commerce application for browsing products, shopping cart, checkout, orders, and account management.
+```bash
+npm run lint
+```
 
-### VENDO Backend
+Runs ESLint to check the project.
 
-Laravel REST API responsible for authentication, products, orders, payments, returns, refunds, exchanges, and database operations.
+## 🌐 Deployment
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Then start the production server:
+
+```bash
+npm run start
+```
+
+Configure the production API URL in your environment variables:
+
+```env
+NEXT_PUBLIC_API_URL=<production-api-url>
+```
+
+The dashboard can be deployed to platforms that support Next.js, including [Vercel](https://vercel.com?utm_source=chatgpt.com).
+
+## 🔗 VENDO Project
+
+VENDO is an e-commerce platform consisting of multiple applications.
+
+| Application       | Technology                 |
+| ----------------- | -------------------------- |
+| Customer Frontend | Next.js, React, TypeScript |
+| Admin Dashboard   | Next.js, React, TypeScript |
+| Backend API       | Laravel, PHP               |
+| Database          | PostgreSQL                 |
+| API Architecture  | RESTful API                |
+| UI                | Tailwind CSS, shadcn/ui    |
 
 ## 👨‍💻 Developer
 
 **Nheung Phearakyuth**
 
 Full Stack Developer
-
-### VENDO Technology Stack
-
-| Application       | Technology                 |
-| ----------------- | -------------------------- |
-| Customer Frontend | Next.js, React, TypeScript |
-| Admin Dashboard   | React, TypeScript, Vite    |
-| Backend           | Laravel, PHP               |
-| Database          | PostgreSQL                 |
-| API               | RESTful API                |
-| UI                | Tailwind CSS, shadcn/ui    |
-
-## 📌 Project Status
-
-VENDO Dashboard is actively developed as part of the VENDO e-commerce platform.
 
 ---
 
